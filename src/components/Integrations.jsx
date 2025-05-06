@@ -62,9 +62,7 @@ export default function Integrations() {
     }, []);
 
     const sanitizeInput = async () => {
-        const response = await axios.get(
-            `http://127.0.0.1:8000/github/${account}`
-        );
+        const response = await fetch(`/api/github/${account}`);
         const result = response.data;
 
         if (result.status === "404" || result.message === "Not Found") {
@@ -83,9 +81,7 @@ export default function Integrations() {
             setLoading(true);
 
             if (await sanitizeInput()) {
-                const response = await axios.get(
-                    `http://127.0.0.1:8000/github/${account}`
-                );
+                const response = await fetch(`/api/github/${account}`);
                 const result = response.data;
 
                 setStorage(Array.isArray(result) ? result : []);
@@ -387,33 +383,33 @@ export default function Integrations() {
                                     ) : null}
                                 </div>
                                 {storage.length !== 0 && (
-                                <div className="flex justify-center items-end h-[100px]">
-                                    <AlertDialog>
-                                        <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
-                                            Initialize Repository
-                                        </AlertDialogTrigger>
-                                        <AlertDialogContent>
-                                            <AlertDialogHeader>
-                                                <AlertDialogTitle>Confirm this action?</AlertDialogTitle>
-                                                <AlertDialogDescription>
-                                                    You currently have 1 credit available to initialize a
-                                                    new repository.
-                                                </AlertDialogDescription>
-                                            </AlertDialogHeader>
-                                            <AlertDialogFooter>
-                                                <AlertDialogCancel className="cursor-pointer">
-                                                    Cancel
-                                                </AlertDialogCancel>
-                                                <AlertDialogAction
-                                                    className="cursor-pointer"
-                                                    onClick={() => triggerInitializedPage(index)}
-                                                >
-                                                    Continue
-                                                </AlertDialogAction>
-                                            </AlertDialogFooter>
-                                        </AlertDialogContent>
-                                    </AlertDialog>
-                                </div>
+                                    <div className="flex justify-center items-end h-[100px]">
+                                        <AlertDialog>
+                                            <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
+                                                Initialize Repository
+                                            </AlertDialogTrigger>
+                                            <AlertDialogContent>
+                                                <AlertDialogHeader>
+                                                    <AlertDialogTitle>Confirm this action?</AlertDialogTitle>
+                                                    <AlertDialogDescription>
+                                                        You currently have 1 credit available to initialize a
+                                                        new repository.
+                                                    </AlertDialogDescription>
+                                                </AlertDialogHeader>
+                                                <AlertDialogFooter>
+                                                    <AlertDialogCancel className="cursor-pointer">
+                                                        Cancel
+                                                    </AlertDialogCancel>
+                                                    <AlertDialogAction
+                                                        className="cursor-pointer"
+                                                        onClick={() => triggerInitializedPage(index)}
+                                                    >
+                                                        Continue
+                                                    </AlertDialogAction>
+                                                </AlertDialogFooter>
+                                            </AlertDialogContent>
+                                        </AlertDialog>
+                                    </div>
                                 )}
                             </ScrollArea>
                         </div>
