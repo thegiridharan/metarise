@@ -22,8 +22,8 @@ export default function Navbar() {
                     </div>
                     <div className="flex gap-5 items-center">
                         <a href="/feedback"><Button variant="outline" className="cursor-pointer">Feedback</Button></a>
-                        <p className="cursor-pointer hover:text-gray-600">Changelog</p>
-                        <p className="cursor-pointer hover:text-gray-600">Docs</p>
+                        <a href="/changelog" className="cursor-pointer hover:text-gray-600">Changelog</a>
+                        <a href="/docs" className="cursor-pointer hover:text-gray-600">Docs</a>
                         <Popover>
                             <PopoverTrigger asChild>
                                 <Avatar className="cursor-pointer">

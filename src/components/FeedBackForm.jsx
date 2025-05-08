@@ -26,12 +26,12 @@ export default function FeedBackForm() {
     return (
         <>
             <div className="h-[620px] w-screen bg-dotted flex items-center justify-center">
-                <div className="outline-2 outline-accent bg-white p-[30px] flex flex-col gap-[8px] text-gray-600">
+                <div className="outline-3 outline-accent bg-white p-[30px] flex flex-col gap-[8px] text-gray-600 rounded-[4px] shadow-2xl">
                     <p className="text-[28px] font-bold text-black">Simple Feedback Form</p>
-                    <div className="h-[2px] bg-black" />
+                    <div className="h-[2px] bg-black mb-[15px]" />
                     <p>We would love to hear your thoughts</p>
                     <p>Type <span className="text-red-700">*</span></p>
-                    <div className="flex items-center justify-evenly">
+                    <div className="flex items-center justify-evenly mb-[10px]">
                         <div className="flex gap-[5px] items-center">
                             <Checkbox id="bugs" className="cursor-pointer" />
                             <label htmlFor="bugs">Bugs</label>
@@ -54,7 +54,7 @@ export default function FeedBackForm() {
                     </div>
                     <p>Email <span className="text-red-700">*</span></p>
                     <input className="outline p-1 rounded-[2px]" placeholder="name@example.com" value={email} onChange={e => setEmail(e.target.value)} />
-                    <button onClick={() => sendFeedback()} className="mt-[20px] bg-black text-white h-[40px] rounded-[5px] cursor-pointer hover:bg-black/80">Send Feedback</button>
+                    <button onClick={() => sendFeedback()} className="mt-[20px] bg-black/80 text-white h-[40px] rounded-[5px] cursor-pointer hover:bg-black/90">Send Feedback</button>
                 </div>
             </div>
             <Toaster richColors />

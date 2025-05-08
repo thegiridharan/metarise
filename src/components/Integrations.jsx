@@ -56,6 +56,7 @@ export default function Integrations() {
     const [isClient, setIsClient] = useState(false);
     const [isPaid, setIsPaid] = useLocalStorage("paid", []);
     const [username, setUsername] = useLocalStorage("username", []);
+    const [changelog, setChangelog] = useLocalStorage("changelog", []);
 
     useEffect(() => {
         setIsClient(true);
@@ -117,6 +118,10 @@ export default function Integrations() {
     const [newPage, setNewPage] = useState(false);
     const [newPageLoad, setNewPageLoad] = useState(false);
 
+    const addItem = (newItem) => {
+        setChangelog(prevItems => [...prevItems, newItem]);
+    };
+
     const triggerInitializedPage = (index) => {
         const repo = Array.isArray(storage) ? storage[index] : null;
         if (repo) {
@@ -124,7 +129,11 @@ export default function Integrations() {
             setNewPage(true);
             setNewPageLoad(true);
             setIsPaid(true);
-            toast.info("Repository Added Successfully!")
+            toast.info("Repository Added Successfully!");
+
+            let now = new Date();
+            let date = now.toLocaleTimeString();
+            addItem({ "date": date, "title": repo.name });
         }
     };
 
