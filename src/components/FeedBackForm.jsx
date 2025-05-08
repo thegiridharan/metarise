@@ -54,7 +54,7 @@ export default function FeedBackForm() {
                     </div>
                     <p>Email <span className="text-red-700">*</span></p>
                     <input className="outline p-1 rounded-[2px]" placeholder="name@example.com" value={email} onChange={e => setEmail(e.target.value)} />
-                    <button onClick={() => sendFeedback()} className="mt-[20px] bg-black text-white h-[40px] rounded-[5px] cursor-pointer">Send Feedback</button>
+                    <button onClick={() => sendFeedback()} className="mt-[20px] bg-black text-white h-[40px] rounded-[5px] cursor-pointer hover:bg-black/80">Send Feedback</button>
                 </div>
             </div>
             <Toaster richColors />
