@@ -63,7 +63,8 @@ export default function Integrations() {
 
     const sanitizeInput = async () => {
         const response = await fetch(`/api/github/${account}`);
-        const result = response.data;
+        const result = response.json();
+        result.then(value => console.log(value));
 
         if (result.status === "404" || result.message === "Not Found") {
             setLoading(false);
@@ -82,11 +83,14 @@ export default function Integrations() {
 
             if (await sanitizeInput()) {
                 const response = await fetch(`/api/github/${account}`);
-                const result = response.data;
+                const result = response.json();
 
-                setStorage(Array.isArray(result) ? result : []);
+                await result.then(value =>
+                    setStorage(value)
+                );
                 setLoad(true);
                 setLoadData(true);
+                console.log(storage);
 
                 const uname = response.data.owner.login;
                 setUsername(uname);

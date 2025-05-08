@@ -21,7 +21,7 @@ export default function Navbar() {
                         <Badge variant="outline">Free Trial</Badge>
                     </div>
                     <div className="flex gap-5 items-center">
-                        <Button variant="outline" className="cursor-pointer">Feedback</Button>
+                        <a href="/feedback"><Button variant="outline" className="cursor-pointer">Feedback</Button></a>
                         <p className="cursor-pointer hover:text-gray-600">Changelog</p>
                         <p className="cursor-pointer hover:text-gray-600">Docs</p>
                         <Popover>

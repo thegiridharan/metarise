@@ -5,8 +5,8 @@ function SectionA() {
                 <p className="text-[clamp(1rem,4vw,2rem)]">An SEO App</p>
                 <p className="text-[clamp(1rem,3vw,1.8rem)] text-black/40">Delivering Values through Software and AI.</p>
             </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2W1AMMQG79HoABTFtcKWO1z2U_HgDBmgOBw&s" />
+            <div className="h-[250px] w-[250px]">
+                <img src="https://intersmart.ae/wp-content/uploads/2024/08/SEO-for-Small-Business.webp" />
             </div>
         </div>
     );
@@ -16,7 +16,9 @@ function SectionB() {
     return (
         <>
             <div>
-                <p>Data-Driven SEO Services: Making Informed Decisions for Better Revenue</p>
+                <div>
+                    <p>We Will be soon</p>
+                </div>
             </div>
         </>
     );
@@ -36,7 +38,7 @@ async function Test() {
 
     const res = await fetch("/api/integrations");
 
-    
+
     console.log(res);
 
     return (

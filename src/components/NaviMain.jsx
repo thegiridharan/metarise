@@ -14,7 +14,7 @@ export default function NaviMain() {
                         <a href="/" className="font-semibold text-[18px]">MetaRise</a>
                     </div>
                     <div className="flex gap-5 items-center">
-                        <Button variant="outline" className="cursor-pointer">Feedback</Button>
+                        <a href="/feedback"><Button variant="outline" className="cursor-pointer">Feedback</Button></a>
                         <p className="cursor-pointer hover:text-gray-600">Docs</p>
                         <Popover>
                             <PopoverTrigger asChild>
@@ -40,8 +40,6 @@ export default function NaviMain() {
                     </div>
                 </div>
             </div>
-
-            <LandingPage />
         </>
     );
 };
