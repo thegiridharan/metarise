@@ -27,7 +27,7 @@ export default function NaviMain() {
                                 <div className="flex flex-col gap-1">
                                     <a href="/integrations" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">App</a>
                                     <Separator className="my-1" />
-                                    <p className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</p>
+                                    <a href="/account" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</a>
                                     <Separator className="my-0.5" />
                                     <a href="/settings" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Settings</a>
                                     <Separator className="my-0.5" />

@@ -33,7 +33,7 @@ export default function Navbar() {
                             </PopoverTrigger>
                             <PopoverContent className="w-[250px] mr-4 mt-2">
                                 <div className="flex flex-col gap-1">
-                                    <p className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</p>
+                                    <a href="/account" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</a>
                                     <Separator className="my-1" />
                                     <a href="/settings" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Settings</a>
                                     <Separator className="my-0.5" />
