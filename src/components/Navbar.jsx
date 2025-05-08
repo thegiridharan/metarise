@@ -35,12 +35,9 @@ export default function Navbar() {
                                 <div className="flex flex-col gap-1">
                                     <p className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</p>
                                     <Separator className="my-1" />
-                                    <p className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Settings</p>
-                                    <Separator className="my-1" />
-                                    <div className="flex justify-evenly mt-1.5">
-                                        <Button variant="outline" className="cursor-pointer hover:bg-accent">SignUp</Button>
-                                        <Button className="cursor-pointer">LogIn</Button>
-                                    </div>
+                                    <a href="/settings" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Settings</a>
+                                    <Separator className="my-0.5" />
+                                    <a href="/subscriptions" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Subscriptions</a>
                                 </div>
                             </PopoverContent>
                         </Popover>
