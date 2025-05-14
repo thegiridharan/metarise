@@ -66,7 +66,7 @@ export default function ChatBot() {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
-                <div className="grid grid-flow-row grid-rows-5 h-[100%] w-[80%] mx-auto p-4 bg-white">
+                <div className="grid grid-flow-row grid-rows-5 h-[100%] w-[80%] mx-auto p-4">
                     <div className="overflow-y-auto p-2 row-span-4">
                         {messages.map((msg, index) => (
                             <div key={index} className={`p-2 my-1 rounded-md ${msg.role === "user" ? "text-black text-right bg-accent" : "bg-accent text-black text-left"}`}>

@@ -156,7 +156,7 @@ export default function Integrations() {
         <>
             {isPaid ? (
                 <div className="flex flex-col items-center justify-center h-[590px] bg-dotted">
-                    <div className="h-[380px] w-[600px] bg-accent p-[10px] rounded-[7px] shadow-2xs">
+                    <div className="h-[380px] w-[600px] bg-accent p-[10px] rounded-[7px] shadow-2xl">
                         <div className="h-[85%] w-full">
                             <div className="flex items-center justify-between px-[10px] h-[50px]">
                                 <Avatar>
@@ -169,7 +169,7 @@ export default function Integrations() {
                                 <p>Project Name: {storage.name}</p>
                                 <p>Project ID: {storage.id}</p>
                                 <p>Full Name: {storage.full_name}</p>
-                                <p>Owner</p>
+                                <p className="font-semibold">Owner</p>
                                 <p>Owner's Login: {storage.owner.login}</p>
                                 <p>Owner's ID: {storage.owner.id}</p>
                                 <p>Repository Type: {storage.owner.user_view_type}</p>
@@ -206,7 +206,7 @@ export default function Integrations() {
                 </div>
             ) : (
                 <div className="bg-dotted">
-                    <div className="flex justify-between m-5 p-2.5 bg-accent rounded-[7px]">
+                    <div className="flex justify-between m-5 p-2.5 bg-accent rounded-[7px] shadow-2xs">
                         <div className="rounded-full flex items-center h-8 w-8 justify-center">
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
@@ -250,7 +250,7 @@ export default function Integrations() {
                     </div>
                     <div className="flex flex-col gap-[20px] md:gap-0 md:flex-row md:justify-evenly py-[50px]">
                         <div>
-                            <ScrollArea className="h-[500px] w-[600px] rounded-md bg-white ring-2 ring-gray-300">
+                            <ScrollArea className="h-[500px] w-[600px] rounded-md bg-white ring-2 ring-gray-300 shadow-2xl">
                                 <div className="p-5 flex flex-col gap-2">
                                     {storage && Array.isArray(storage) ? (
                                         loading ? (
@@ -288,7 +288,7 @@ export default function Integrations() {
                         </div>
 
                         <div>
-                            <ScrollArea className="h-[400px] w-[600px] rounded-md bg-white ring-2 ring-gray-300">
+                            <ScrollArea className="h-[400px] w-[600px] rounded-md bg-white ring-2 ring-gray-300 shadow-2xl">
                                 <div className="p-5 flex flex-col gap-2">
                                     {storage && Array.isArray(storage) ? (
                                         loading ? (
@@ -302,7 +302,7 @@ export default function Integrations() {
                                                     <p>{storage[index].name}</p>
                                                     <Avatar>
                                                         <AvatarImage
-                                                            src={storage[index].owner.avatar_url}
+                                                            src={storage[index]?.owner.avatar_url}
                                                         />
                                                         <AvatarFallback>MR</AvatarFallback>
                                                     </Avatar>

@@ -63,12 +63,6 @@ export default function Navbar() {
                                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>Monitoring</NavigationMenuLink>
                                 </Link>
                             </NavigationMenuItem>
-
-                            <NavigationMenuItem>
-                                <Link href="/analytics" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Analytics</NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
