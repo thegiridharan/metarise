@@ -160,19 +160,19 @@ export default function Integrations() {
                         <div className="h-[85%] w-full">
                             <div className="flex items-center justify-between px-[10px] h-[50px]">
                                 <Avatar>
-                                    <AvatarImage src={storage.owner.avatar_url} />
+                                    <AvatarImage src={storage?.owner.avatar_url} />
                                     <AvatarFallback>MR</AvatarFallback>
                                 </Avatar>
                                 <Badge className="bg-green-500">Live</Badge>
                             </div>
                             <div className="flex flex-col gap-2 pl-[30px] pt-[10px]">
-                                <p>Project Name: {storage.name}</p>
-                                <p>Project ID: {storage.id}</p>
-                                <p>Full Name: {storage.full_name}</p>
+                                <p>Project Name: {storage?.name}</p>
+                                <p>Project ID: {storage?.id}</p>
+                                <p>Full Name: {storage?.full_name}</p>
                                 <p className="font-semibold">Owner</p>
-                                <p>Owner's Login: {storage.owner.login}</p>
-                                <p>Owner's ID: {storage.owner.id}</p>
-                                <p>Repository Type: {storage.owner.user_view_type}</p>
+                                <p>Owner's Login: {storage?.owner.login}</p>
+                                <p>Owner's ID: {storage?.owner.id}</p>
+                                <p>Repository Type: {storage?.owner.user_view_type}</p>
                             </div>
                         </div>
                         <div className="w-full flex items-center justify-center">
@@ -266,13 +266,13 @@ export default function Integrations() {
                                                     onClick={() => secondaryData(index)}
                                                 >
                                                     <Avatar>
-                                                        <AvatarImage src={data.owner.avatar_url} />
+                                                        <AvatarImage src={data?.owner.avatar_url} />
                                                         <AvatarFallback>MR</AvatarFallback>
                                                     </Avatar>
                                                     <div>
-                                                        <p>{data.name}</p>
+                                                        <p>{data?.name}</p>
                                                         <p>
-                                                            {data.homepage ? (
+                                                            {data?.homepage ? (
                                                                 <Badge className="bg-green-500">Deployed</Badge>
                                                             ) : (
                                                                 <Badge variant="outline">Not Deployed</Badge>
@@ -299,7 +299,7 @@ export default function Integrations() {
                                         ) : storage[index] ? (
                                             <div className="flex flex-col gap-8">
                                                 <div className="flex flex-row justify-between items-center p-[20px] bg-accent rounded-[7px]">
-                                                    <p>{storage[index].name}</p>
+                                                    <p>{storage[index]?.name}</p>
                                                     <Avatar>
                                                         <AvatarImage
                                                             src={storage[index]?.owner.avatar_url}
@@ -308,9 +308,9 @@ export default function Integrations() {
                                                     </Avatar>
                                                 </div>
                                                 <div>
-                                                    {storage[index].homepage ? (
+                                                    {storage[index]?.homepage ? (
                                                         <a
-                                                            href={storage[index].homepage}
+                                                            href={storage[index]?.homepage}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                         >
