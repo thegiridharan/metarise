@@ -11,11 +11,11 @@ export default function NaviMain() {
             <div className="flex flex-col shadow-md pt-2.5 gap-1 pb-[14px] sticky top-0 z-50 backdrop-blur">
                 <div className="flex justify-between py-[5px] px-[10px]">
                     <div className="flex gap-3 items-center">
-                        <a href="/" className="font-semibold text-[18px]">MetaRise</a>
+                        <a href="/" className="font-semibold text-[18px] bg-white px-[10px] py-[5px] rounded-[6px]">MetaRise</a>
                     </div>
                     <div className="flex gap-5 items-center">
                         <a href="/feedback"><Button variant="outline" className="cursor-pointer">Feedback</Button></a>
-                        <a href="/docs" className="cursor-pointer hover:text-gray-600">Docs</a>
+                        <a href="/docs" className="cursor-pointer hover:text-gray-600 bg-white rounded-[6px] px-[14px] py-[5px]">Docs</a>
                         <Popover>
                             <PopoverTrigger asChild>
                                 <Avatar className="cursor-pointer">
