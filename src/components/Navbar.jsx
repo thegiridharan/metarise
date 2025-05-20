@@ -8,6 +8,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { motion } from "framer-motion";
+import { AlignRight, Bot, CircleUserRound, ClockFading, GitCompareArrows, Github, IndianRupee, Settings } from "lucide-react";
 
 export default function Navbar() {
     return (
@@ -18,26 +20,38 @@ export default function Navbar() {
                         <a href="/" className="font-semibold text-[18px]">MetaRise</a>
                         <p> \ </p>
                         <p>thegiridharan</p>
-                        <Badge variant="outline">Free Trial</Badge>
+                        <motion.div whileHover={{ scale: 1.05 }}><Badge variant="outline">Free Trial</Badge></motion.div>
                     </div>
-                    <div className="flex gap-5 items-center">
-                        <a href="/feedback"><Button variant="outline" className="cursor-pointer">Feedback</Button></a>
-                        <a href="/changelog" className="cursor-pointer hover:text-gray-600">Changelog</a>
-                        <a href="/docs" className="cursor-pointer hover:text-gray-600">Docs</a>
+                    <div className="flex gap-[8px] items-center">
+                        <motion.a whileTap={{ scale: 0.95 }} href="/feedback"><button className="p-[5px] outline-1 outline-gray-400 cursor-pointer rounded-[5px] px-[10px] bg-white hover:bg-gray-200 transition-colors duration-200">Feedback</button></motion.a>
+                        <motion.a
+                            whileTap={{ scale: 0.95 }}
+                            href="/changelog"
+                            className="cursor-pointer hover:bg-gray-200 bg-white rounded-[6px] px-[12px] py-[5px] transition-colors duration-200">
+                            ChangeLog
+                        </motion.a>
+                        <div className="h-[18px] outline-1" />
+                        <motion.a
+                            whileTap={{ scale: 0.95 }}
+                            href="/docs"
+                            className="cursor-pointer hover:bg-gray-200 bg-white rounded-[6px] px-[18px] py-[5px] transition-colors duration-200">
+                            Docs
+                        </motion.a>
                         <Popover>
                             <PopoverTrigger asChild>
-                                <Avatar className="cursor-pointer">
-                                    <AvatarImage src="https://plus.unsplash.com/premium_photo-1672201106204-58e9af7a2888?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JhZGllbnR8ZW58MHx8MHx8fDA%3D" alt="@metarise"></AvatarImage>
-                                    <AvatarFallback>TG</AvatarFallback>
-                                </Avatar>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <Avatar className="cursor-pointer flex items-center justify-center bg-white hover:bg-gray-200 p-[5px]">
+                                        <AlignRight className="h-[30px] w-[30px]" />
+                                    </Avatar>
+                                </motion.div>
                             </PopoverTrigger>
                             <PopoverContent className="w-[250px] mr-4 mt-2">
                                 <div className="flex flex-col gap-1">
-                                    <a href="/account" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">My Account</a>
-                                    <Separator className="my-1" />
-                                    <a href="/settings" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Settings</a>
+                                    <motion.a whileTap={{ scale: 0.95 }} href="/account" className="hover:bg-gray-200 h-[34px] flex items-center rounded-[5px] px-2 cursor-pointer justify-between transition-colors duration-200">My Account <CircleUserRound className="h-[20px] w-[20px]" /></motion.a>
                                     <Separator className="my-0.5" />
-                                    <a href="/subscriptions" className="hover:bg-accent h-[34px] flex items-center rounded-[5px] pl-2 cursor-pointer">Subscriptions</a>
+                                    <motion.a whileTap={{ scale: 0.95 }} href="/settings" className="hover:bg-gray-200 h-[34px] flex items-center rounded-[5px] px-2 cursor-pointer justify-between transition-colors duration-200">Settings<Settings className="h-[20px] w-[20px]" /></motion.a>
+                                    <Separator className="my-0.5" />
+                                    <motion.a whileTap={{ scale: 0.95 }} href="/subscriptions" className="hover:bg-gray-200 h-[34px] flex items-center rounded-[5px] px-2 cursor-pointer justify-between transition-colors duration-200">Subscriptions <IndianRupee className="h-[20px] w-[20px]" /></motion.a>
                                 </div>
                             </PopoverContent>
                         </Popover>
@@ -47,21 +61,27 @@ export default function Navbar() {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <Link href="/integrations" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Integrations</NavigationMenuLink>
-                                </Link>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <Link href="/integrations" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}><p className="text-[16px] font-normal flex gap-[7px] items-center"> <GitCompareArrows /> Integrations</p></NavigationMenuLink>
+                                    </Link>
+                                </motion.div>
                             </NavigationMenuItem>
-
+                            <div className="h-[18px] outline-1" />
                             <NavigationMenuItem>
-                                <Link href="/chats" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>ChatAI</NavigationMenuLink>
-                                </Link>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <Link href="/chats" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}><p className="text-[16px] font-normal flex gap-[7px] items-center"> <Bot /> ChatAI</p></NavigationMenuLink>
+                                    </Link>
+                                </motion.div>
                             </NavigationMenuItem>
-
+                            <div className="h-[18px] outline-1" />
                             <NavigationMenuItem>
-                                <Link href="/monitoring" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Monitoring</NavigationMenuLink>
-                                </Link>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <Link href="/monitoring" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}><p className="text-[16px] font-normal flex gap-[7px] items-center"><ClockFading /> Monitoring</p></NavigationMenuLink>
+                                    </Link>
+                                </motion.div>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>

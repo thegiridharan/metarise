@@ -13,7 +13,7 @@ import { Input } from "./ui/input";
 import { useEffect, useState } from "react";
 import { toast, Toaster } from "sonner";
 import { ScrollArea } from "./ui/scroll-area";
-import { Loader2 } from "lucide-react";
+import { AlignCenter, AlignLeft, ArrowDownToLine, Loader2, Plus } from "lucide-react";
 import axios from "axios";
 import { Skeleton } from "./ui/skeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -43,6 +43,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLab
 import { CircularProgress } from '@mui/material';
 import { LinearProgress } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { motion } from "framer-motion";
 
 export default function Integrations() {
     const [loading, setLoading] = useState(false);
@@ -71,7 +72,7 @@ export default function Integrations() {
             setLoading(false);
             setLoad(false);
             setAlert(true);
-            toast.error("Wrong Account Name!")
+            toast.error("Wrong Account Name!");
             return false;
         }
 
@@ -95,6 +96,7 @@ export default function Integrations() {
 
                 const uname = response.data.owner.login;
                 setUsername(uname);
+                setOpen(false);
                 toast.success("Repository Fetched Successfully!")
             }
         } catch (error) {
@@ -150,6 +152,22 @@ export default function Integrations() {
         toast.success("Cache Cleared!");
     };
 
+    const [open, setOpen] = useState(false);
+    const listVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1, // Animate each item one after another
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+    };
+
     if (!isClient) return null;
 
     return (
@@ -177,9 +195,11 @@ export default function Integrations() {
                         </div>
                         <div className="w-full flex items-center justify-center">
                             <AlertDialog>
-                                <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
-                                    Terminate Repository
-                                </AlertDialogTrigger>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
+                                        Terminate Repository
+                                    </AlertDialogTrigger>
+                                </motion.div>
                                 <AlertDialogContent>
                                     <AlertDialogHeader>
                                         <AlertDialogTitle>Confirm this action?</AlertDialogTitle>
@@ -188,15 +208,19 @@ export default function Integrations() {
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
-                                        <AlertDialogCancel className="cursor-pointer">
-                                            Cancel
-                                        </AlertDialogCancel>
-                                        <AlertDialogAction
-                                            className="cursor-pointer"
-                                            onClick={() => deleteRepo()}
-                                        >
-                                            Continue
-                                        </AlertDialogAction>
+                                        <motion.button whileTap={{ scale: 0.95 }}>
+                                            <AlertDialogCancel className="cursor-pointer hover:bg-gray-200">
+                                                Cancel
+                                            </AlertDialogCancel>
+                                        </motion.button>
+                                        <motion.button whileTap={{ scale: 0.95 }}>
+                                            <AlertDialogAction
+                                                className="cursor-pointer"
+                                                onClick={() => deleteRepo()}
+                                            >
+                                                Continue
+                                            </AlertDialogAction>
+                                        </motion.button>
                                         <Toaster />
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
@@ -210,20 +234,24 @@ export default function Integrations() {
                         <div className="rounded-full flex items-center h-8 w-8 justify-center">
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
-                                    <Menu className="w-6 h-6 cursor-pointer" />
+                                    <motion.div whileTap={{ scale: 0.95 }}>
+                                        <AlignLeft className="cursor-pointer flex items-center justify-center" />
+                                    </motion.div>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent className="absolute">
                                     <DropdownMenuLabel>
-                                        <button className="cursor-pointer" onClick={() => clearCache()}>Clear Cache</button>
+                                        <motion.div whileTap={{ scale: 0.95 }} className="cursor-pointer flex justify-center items-center" onClick={() => clearCache()}>Clear Cache</motion.div>
                                     </DropdownMenuLabel>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>
                         <div>
-                            <Dialog>
-                                <DialogTrigger className="bg-black text-white rounded-[7px] h-[38px] px-[10px] text-[15px] cursor-pointer">
-                                    New Repository
-                                </DialogTrigger>
+                            <Dialog open={open} onOpenChange={setOpen}>
+                                <motion.div whileTap={{ scale: 0.95 }}>
+                                    <DialogTrigger onClick={() => setOpen(true)} className="bg-black text-white rounded-[7px] h-[38px] px-[10px] text-[15px] cursor-pointer flex items-center gap-[12px]">
+                                        <Plus className="h-[20px] w-[20px]" />   New Repository
+                                    </DialogTrigger>
+                                </motion.div>
                                 <DialogContent className="sm:max-w-[425px]">
                                     <DialogHeader>
                                         <DialogTitle>Add New Repository</DialogTitle>
@@ -242,7 +270,9 @@ export default function Integrations() {
                                         />
                                     </div>
                                     <DialogFooter>
-                                        <LoadingButton loadingPosition="start" loading={loading} variant="contained" onClick={() => getRepos()} className="cursor-pointer" sx={{ backgroundColor: "black", textTransform: "none" }}>Submit</LoadingButton>
+                                        <motion.div whileTap={{ scale: 0.95 }}>
+                                            <LoadingButton loadingPosition="start" loading={loading} variant="contained" onClick={() => getRepos()} className="cursor-pointer" sx={{ backgroundColor: "black", textTransform: "none" }}>Submit</LoadingButton>
+                                        </motion.div>
                                     </DialogFooter>
                                 </DialogContent>
                             </Dialog>
@@ -251,7 +281,11 @@ export default function Integrations() {
                     <div className="flex flex-col gap-[20px] md:gap-0 md:flex-row md:justify-evenly py-[50px]">
                         <div>
                             <ScrollArea className="h-[500px] w-[600px] rounded-md bg-white ring-2 ring-gray-300 shadow-2xl">
-                                <div className="p-5 flex flex-col gap-2">
+                                <motion.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={listVariants}
+                                    className="p-5 flex flex-col gap-2">
                                     {storage && Array.isArray(storage) ? (
                                         loading ? (
                                             <div className="flex flex-col gap-3 mt-10 px-6">
@@ -260,7 +294,8 @@ export default function Integrations() {
                                             </div>
                                         ) : (
                                             storage.map((data, index) => (
-                                                <div
+                                                <motion.div
+                                                    variants={itemVariants}
                                                     key={index}
                                                     className="flex flex-row gap-[20px] h-[60px] items-center hover:bg-accent px-[20px] py-[40px] rounded-[7px] border-[3px] border-accent"
                                                     onClick={() => secondaryData(index)}
@@ -279,11 +314,11 @@ export default function Integrations() {
                                                             )}
                                                         </p>
                                                     </div>
-                                                </div>
+                                                </motion.div>
                                             ))
                                         )
                                     ) : null}
-                                </div>
+                                </motion.div>
                             </ScrollArea>
                         </div>
 
@@ -398,9 +433,11 @@ export default function Integrations() {
                                 {storage.length !== 0 && (
                                     <div className="flex justify-center items-end h-[100px]">
                                         <AlertDialog>
-                                            <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
-                                                Initialize Repository
-                                            </AlertDialogTrigger>
+                                            <motion.div whileTap={{ scale: 0.95 }}>
+                                                <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] flex gap-[7px] items-center">
+                                                 <ArrowDownToLine className="h-[20px] w-[20px]" />   Initialize Repository
+                                                </AlertDialogTrigger>
+                                            </motion.div>
                                             <AlertDialogContent>
                                                 <AlertDialogHeader>
                                                     <AlertDialogTitle>Confirm this action?</AlertDialogTitle>

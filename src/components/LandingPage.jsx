@@ -1,3 +1,7 @@
+"use client";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+
 function SectionA() {
     return (
         <div className="relative h-screen w-full">
@@ -26,24 +30,24 @@ function SectionB() {
                 <div className="flex flex-row gap-[50px] justify-center w-full">
                     <div className="flex flex-col gap-[10px]">
                         <p className="font-semibold">Application Review</p>
-                        <a href="/docs" className="mt-[10px] hover:text-gray-600">Documentation</a>
-                        <a href="/feedback" className="hover:text-gray-600">FeedBack</a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/docs" className="mt-[10px] hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] transition-colors duration-200">Documentation <ArrowUpRight /></motion.a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/feedback" className="hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">FeedBack <ArrowUpRight /></motion.a>
                     </div>
                     <div className="flex flex-col gap-[10px]">
                         <p className="font-semibold">Application Usage</p>
-                        <a href="/account" className="mt-[10px] hover:text-gray-600">LogIn / Register</a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/account" className="mt-[10px] hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">LogIn / Register <ArrowUpRight /></motion.a>
                     </div>
                     <div className="flex flex-col gap-[10px]">
                         <p className="font-semibold">Core Application Features</p>
-                        <a href="/integrations" className="mt-[10px] hover:text-gray-600">Integrations</a>
-                        <a href="/chats" className="hover:text-gray-600">ChatBot</a>
-                        <a href="/monitoring" className="hover:text-gray-600">Monitoring</a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/integrations" className="mt-[10px] hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">Integrations<ArrowUpRight /></motion.a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/chats" className="hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">ChatBot<ArrowUpRight /></motion.a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/monitoring" className="hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">Monitoring<ArrowUpRight /></motion.a>
                     </div>
                     <div className="flex flex-col gap-[10px]">
                         <p className="font-semibold">Value Added Features</p>
-                        <a href="/changelog" className="mt-[10px] hover:text-gray-600">ChangeLog</a>
-                        <a href="/settings" className="hover:text-gray-600">Settings</a>
-                        <a href="/subscriptions" className="hover:text-gray-600">Subscriptions</a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/changelog" className="mt-[10px] hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">ChangeLog<ArrowUpRight /></motion.a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/settings" className="hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">Settings<ArrowUpRight /></motion.a>
+                        <motion.a whileTap={{ scale: 0.95 }} href="/subscriptions" className="hover:bg-gray-200 rounded-[7px] p-[5px] flex flex-row gap-[10px] w-fit transition-colors duration-200">Subscriptions<ArrowUpRight /></motion.a>
                     </div>
                 </div>
             </div>

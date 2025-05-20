@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useLocalStorage } from "@/hooks/useLocalStorage"; // Update the import path accordingly
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import { AlignLeft, Menu } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { LoadingButton } from "@mui/lab";
 import FormattedMessage from "./FormattedMessage";
+import { motion } from "framer-motion";
 
 export default function ChatBot() {
     const [messages, setMessages] = useLocalStorage("chat", []);
@@ -57,11 +58,13 @@ export default function ChatBot() {
                 <div className="rounded-full h-8 w-8 justify-center">
                     <DropdownMenu>
                         <DropdownMenuTrigger>
-                            <Menu className="w-6 h-6 cursor-pointer text-black" />
+                            <motion.div whileTap={{ scale: 0.95 }}>
+                                <AlignLeft className="h-[25px] w-[25px] cursor-pointer" />
+                            </motion.div>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="absolute">
                             <DropdownMenuLabel>
-                                <button className="cursor-pointer" onClick={clearCache}>Clear Chat</button>
+                                <motion.div whileTap={{ scale: 0.95 }} className="cursor-pointer" onClick={clearCache}>Clear Chat</motion.div>
                             </DropdownMenuLabel>
                         </DropdownMenuContent>
                     </DropdownMenu>
