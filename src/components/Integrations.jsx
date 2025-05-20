@@ -197,7 +197,7 @@ export default function Integrations() {
                             <AlertDialog>
                                 <motion.div whileTap={{ scale: 0.95 }}>
                                     <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] flex gap-[10px] items-center justify-center ">
-                                      <CircleX className="h-[20px] w-[20px]" />  Terminate Repository
+                                        <CircleX className="h-[20px] w-[20px]" />  Terminate Repository
                                     </AlertDialogTrigger>
                                 </motion.div>
                                 <AlertDialogContent>
@@ -435,7 +435,7 @@ export default function Integrations() {
                                         <AlertDialog>
                                             <motion.div whileTap={{ scale: 0.95 }}>
                                                 <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] flex gap-[7px] items-center">
-                                                 <ArrowDownToLine className="h-[20px] w-[20px]" />   Initialize Repository
+                                                    <ArrowDownToLine className="h-[20px] w-[20px]" />   Initialize Repository
                                                 </AlertDialogTrigger>
                                             </motion.div>
                                             <AlertDialogContent>
