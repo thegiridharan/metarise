@@ -13,7 +13,7 @@ import { Input } from "./ui/input";
 import { useEffect, useState } from "react";
 import { toast, Toaster } from "sonner";
 import { ScrollArea } from "./ui/scroll-area";
-import { AlignCenter, AlignLeft, ArrowDownToLine, Loader2, Plus } from "lucide-react";
+import { AlignCenter, AlignLeft, ArrowDownToLine, CircleX, Loader2, Plus } from "lucide-react";
 import axios from "axios";
 import { Skeleton } from "./ui/skeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -196,8 +196,8 @@ export default function Integrations() {
                         <div className="w-full flex items-center justify-center">
                             <AlertDialog>
                                 <motion.div whileTap={{ scale: 0.95 }}>
-                                    <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] ">
-                                        Terminate Repository
+                                    <AlertDialogTrigger className="cursor-pointer bg-black text-white rounded-[7px] h-[38px] px-[15px] text-[15px] flex gap-[10px] items-center justify-center ">
+                                      <CircleX className="h-[20px] w-[20px]" />  Terminate Repository
                                     </AlertDialogTrigger>
                                 </motion.div>
                                 <AlertDialogContent>
